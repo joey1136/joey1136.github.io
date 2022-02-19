@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kwok Pui Yu's Website</title>
+<link rel="stylesheet" href="./style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body{
+	background: linear-gradient(to bottom, aliceblue 0%, rgb(0, 136, 255) 100%);
+	height:100%;
+	margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	display: flex;
+  	flex-direction: row;
+  	justify-content: center;
+}
+
+#navigationBar {
+	padding-top:10px;
+	text-align:right;
+	position: fixed;
+	top: 0; 
+	right:0;
+	transition: top 0.5s;
+	width:100%;
+	color:#1418ff;
+}
+#navigationBar li {
+	list-style-type: none;
+	display:inline;
+	margin:10px;
+}
+#profile{
+	animation: fadeInAnimation ease 5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+	margin-top: 100px;
+	perspective: 1000px;
+	height:300px;
+	width:500px;
+}
+#profile.hover #nameCardContainer{
+	transform: rotateY(180deg);
+}
+#nameCardContainer{
+	transition: 0.6s;
+  	transform-style: preserve-3d;
+  	position: relative;
+}
+#nameCard, #nameCardBack {
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+  	left: 0;
+}
+#nameCard{
+	z-index:2;
+	transform: rotateY(0deg);
+}
+#nameCardBack{
+	transform: rotateY(180deg);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+#nameCard,#nameCardBack{
+	margin-top: 100px;
+	height:300px;
+	width:500px;
+	border: 2px solid white;
+	border-radius: 30px;
+	display: flex;
+	background-color: aliceblue;
+	color:#1418ff;
+	box-shadow: 10px 10px 5px rgb(129, 165, 231);
+}
+#nameCardLeft{
+	width:100%;
+	flex:1;
+	display: flex;
+	flex-direction: column;
+
+}
+#nameCardRight{
+	width:100%;
+	flex:2;
+	border-left: 3px solid rgb(18, 73, 156);
+}
+#cardImage{
+	width:90px;
+	height:120px;
+	border:3px solid white;
+}
+#cardImage img{
+	width:90px;
+	height:120px;
+}
+#basicInfoLink{
+	color:#9eccf7;
+}
+#basicInformation{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#introNavigation li {
+	margin:10px;
+	font-size: 10px;
+}
+#nameCardRightContentContainter{
+	height:100%;
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#title{
+	width:100%;
+	height:100%;
+	font-size: 20px;
+	padding-top:10px;
+}
+#contactLinks{
+	height:100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	font-size: 30px;
+	gap:40px;
+}
+
+</style>
+</head>
+<body>
+
+<div id="navigationBar">
+	<ul>
+	  <li><a href="#" onclick="removeClass()">Profile</a></li>
+	  <li><a href="#" onClick="toggleClass()">Contact</a></li>
+	</ul>  
+</div>
+
+<div id="profile">
+	<div id="nameCardContainer">
+		<div id="nameCard">
+			<div id="nameCardLeft">
+				<div id="basicInformation">
+					<p>Kwok Pui Yu, Joey</p>
+					<div id="cardImage">
+						<img src="./image.jpg" alt="Image about me"/>
+					</div>
+				</div>
+				<div id="introNavigation">
+					<ul>
+						<li ><a href="#" id="basicInfoLink">Basic Information</a></li>
+						<li ><a href="#" id="skillsLink">Skills</a></li>
+						<li ><a href="#" id="projectsLink">Projects</a></li>
+						<li ><a href="#" id="interestsLink">Interests</a></li>
+					  </ul>  
+				</div>
+			</div>
+			<div id="nameCardRight">
+				<iframe id="nameCardRightContentContainter" src="./profile.html" frameBorder="0"></iframe>
+			</div>
+		</div>
+		<div id="nameCardBack">
+			<div id="title">Contact Me</div>
+			<div id="contactLinks">	
+				<a href ="mailto: kwokjoey2000@gmail.com"><i class="fa fa-envelope"></i></a>
+				<a href ="tel:+85266513760"><i class="fa fa-phone"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+document.getElementById("basicInfoLink").addEventListener("click", renderBasicInfo);
+document.getElementById("skillsLink").addEventListener("click", renderSkills);
+document.getElementById("projectsLink").addEventListener("click", renderProjects);
+document.getElementById("interestsLink").addEventListener("click", renderInterests);
+
+function renderBasicInfo(event) {
+	document.getElementById("nameCardRightContentContainter").src = "./profile.html";
+	document.getElementById("basicInfoLink").style.color = '#9eccf7';
+	document.getElementById("skillsLink").style.color = '#1418ff';
+	document.getElementById("projectsLink").style.color = '#1418ff';
+	document.getElementById("interestsLink").style.color = '#1418ff';
+}
+
+function renderSkills(event) {
+	document.getElementById("nameCardRightContentContainter").src = "./skills.html";
+	document.getElementById("basicInfoLink").style.color = '#1418ff';
+	document.getElementById("skillsLink").style.color = '#9eccf7';
+	document.getElementById("projectsLink").style.color = '#1418ff';
+	document.getElementById("interestsLink").style.color = '#1418ff';
+}
+
+function renderProjects(event) {
+	document.getElementById("nameCardRightContentContainter").src = "./projects.html";
+	document.getElementById("basicInfoLink").style.color = '#1418ff';
+	document.getElementById("skillsLink").style.color = '#1418ff';
+	document.getElementById("projectsLink").style.color = '#9eccf7';
+	document.getElementById("interestsLink").style.color = '#1418ff';
+}
+
+function renderInterests(event) {
+	document.getElementById("nameCardRightContentContainter").src = "./interest.html";
+	document.getElementById("basicInfoLink").style.color = '#1418ff';
+	document.getElementById("skillsLink").style.color = '#1418ff';
+	document.getElementById("projectsLink").style.color = '#1418ff';
+	document.getElementById("interestsLink").style.color = '#9eccf7';
+}
+
+function toggleClass(){
+	document.getElementById("profile").classList.toggle('hover');
+}
+
+function removeClass(){
+	document.getElementById("profile").classList.remove('hover');
+}
+</script>
+</body>
+</html>
+
+
