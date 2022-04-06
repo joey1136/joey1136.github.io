@@ -1,0 +1,35 @@
+a {
+	text-decoration:none;
+}
+a:visited{
+	color:#1418ff;
+}
+
+a:hover{
+	color:#9eccf7;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom:10px;
+	margin-top:15px;
+}
+td, th {
+	border: 2px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+th {
+	font-size: 14px;
+	font-weight: 100;
+	color:rgb(247, 99, 123);
+}
+td {
+	font-size: 12px;
+
+}
+* {
+	font-family: fantasy, Helvetica, sans-serif;
+}

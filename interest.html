@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Kwok Pui Yu's Website</title>
+<link rel="stylesheet" href="./style.css">
+<style>
+#interest{
+	padding:10px;
+	height:100%;
+	margin:auto;
+	color:rgb(247, 99, 123);
+	font-size:14px;
+}
+#leftButton, #rightButton{
+	font-size: 25px;
+	background-color: rgb(255, 179, 191);
+	padding-left:3px;
+	padding-right:3px;
+	height:150px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	flex:1;
+}
+a:visited {
+	color:rgb(255, 31, 69);
+}
+a:hover {
+	color:rgb(247, 99, 123);
+}
+#leftButton{
+	border-radius: 30px 0px 0px 30px;
+}
+#rightButton{
+	border-radius: 0px 30px 30px 0px;
+}
+.imageGallery{
+	padding-top:50px;
+	display: flex;
+	align-items: center;
+	border-radius: 30px;
+	margin:auto;
+	width:200px;
+}
+#galleryImagesConatiner{
+	flex:10;
+	height:150px;
+	display: flex;
+	justify-content: center;
+}
+#galleryImages{
+	height:150px;
+
+}
+</style>
+</head>
+<body>
+
+<div id="interest">
+	<div>
+		My Interests
+	</div>
+	<div class="imageGallery">
+		<div id="leftButton">
+			<a href="#">&lt;</a>
+		</div>
+		<div id="galleryImagesConatiner">
+			<img id="galleryImages" src="./food/macaron.jpg">
+		</div>
+		<div id="rightButton">
+			<a href="#">&gt;</a>
+		</div>
+	</div>
+	
+</div>
+<script>
+var page = 0
+var images = ["./food/macaron.jpg","./food/pudding cake.jpg","./food/orange cake.jpg","./food/cake.jpg","./food/pie.jpg"];
+document.getElementById("leftButton").addEventListener("click", renderPageLeft);
+document.getElementById("rightButton").addEventListener("click", renderPageRight);
+
+function renderPageLeft(event) {
+	if (page === 0){
+		page = images.length -1
+	}else{
+		page--
+	}
+	document.getElementById("galleryImages").src = images[page];
+}
+
+function renderPageRight(event) {
+	if (page === images.length-1){
+		page = 0
+	}else{
+		page++
+	}
+	document.getElementById("galleryImages").src = images[page];
+}
+</script>
+</body>
+</html>
+
